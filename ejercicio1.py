@@ -8,6 +8,22 @@ def dots_and_boxes(links):
     for link in links:
        
         if link[0] == link[2]:
-           # Se verifica si las cajas formadas por los puntos encima, debajo, a la derecha o a la izquierda de la línea están vacías.
             if grid[link[0]-1][link[1]] == 0 and grid[link[0]+1][link[1]] == 0:
                 player1_score += 1
+              elif grid[link[0]-1][link[1]] == 0 or grid[link[0]+1][link[1]] == 0:
+                player2_score += 1
+        
+        elif link[1] == link[3]:
+          if grid[link[0]][link[1]-1] == 0 and grid[link[0]][link[1]+1] == 0:
+                player1_score += 1
+            
+            elif grid[link[0]][link[1]-1] == 0 or grid[link[0]][link[1]+1] == 0:
+              player2_score += 1
+        
+        grid[link[0]][link[1]] = 1
+    
+    # Se devuelven las puntuaciones de ambos jugadores como una tupla de dos elementos.
+    return (player1_score, player2_score)
+
+
+            

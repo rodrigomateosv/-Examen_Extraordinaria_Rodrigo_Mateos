@@ -1,20 +1,18 @@
-crear codigo actualizado con funciones y comentarios:
-
 import string
 
 def cifrado_vigenere(ciphertexto, longitud_clave):
     # Crear una lista para almacenar las posibles claves
     possibles_claves = []
-    
-    for i in range(longitud_clave):
+        for i in range(longitud_clave):
         block = ""
         # Creo el bloque tomando cada carácter enésimo, donde n es la longitud de la clave
         for j in range(i, len(ciphertext), longitud_clave):
             block += ciphertexto[j]
         # Calcular el índice de coincidencia para el bloque.
-        índice_de_coincidencia = calcula_índice_de_coincidencia(block)
+  índice_de_coincidencia = calcula_índice_de_coincidencia(block)
         # Determine el cambio necesario para alinear el bloque con la letra inglesa más común, E
-        shift = (ord('E') - ord(índice_de_coincidencia[0])) % 26
+        shift = (ord('E') - ord(índice_de_coincidencia[0]))
+% 26
         # Crear una clave basada en el turno
         key = chr((shift + ord('A')) % 26)
         possibles_claves.append(key)
